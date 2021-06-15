@@ -21,7 +21,7 @@ $ python tools/merge_bn.py --pycaffe $CAFFE_ROOT/python --model deploy.prototxt 
 
 ## Quick Data ##
 ```
-## create label list and dataset
+## create label list and dataset(or one can use ssd official scripts)
 $ vi tools/create_list.sh
 $ vi tools/create_data.sh
 $ tools/create_list.sh // generate train/val/test.txt
@@ -90,15 +90,6 @@ conv16_2    /256      (2x2)x6     (3x2)x6
 conv17_2    /512      (1x1)x6     (2x1)x6
 -----------------------------------------------------
 mbox                = 1917      = 4698
-```
-
-## Caffe FAQ ##
-```
-1. fatal error: hdf5.h missing
-$ pkg-config hdf5 --libs --cflags
--I/usr/include/hdf5/serial -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5
-line92: INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
-line93: LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial
 ```
 
 ## Reference ##

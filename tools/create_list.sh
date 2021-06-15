@@ -2,9 +2,10 @@
 set -e # -xe
 
 # =============================================================================
-# This file is used to create the list of train and test files for training and
-# testing procedures. Outputs: trainval.txt, test.txt and test_name_size.txt .
-# These files map each image to its label file.
+# @Brief:   This file is used to create the list of train and test files for
+#           training/testing procedures. They map each image to its label file.
+# @Outputs: trainval.txt, test.txt and test_name_size.txt .
+# @Note:    1) The outputs can be shared by all classes;
 # =============================================================================
 
 bash_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -51,7 +52,7 @@ awk 'FNR>"'$cnt_trainval'"' ${dst_all_tmp} > ${dst_file_test}
 rm -rf ${dst_file_test_name_size}
 while read line; do
     line=${line%% *}
-	size=`identify ${data_root_dir}/${line} | cut -d ' ' -f 3| sed -e "s/x/ /"`
+	size=`identify ${data_root_dir}/${line} | cut -d ' ' -f 3 | sed -e "s/x/ /" | sed -r 's/([^ ]+) (.*)/\2 \1/'`
 	name=$(basename ${line})
     name=${name%%.*}
 	echo ${name}" "${size} >> ${dst_file_test_name_size}

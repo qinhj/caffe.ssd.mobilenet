@@ -36,6 +36,9 @@ if [ $redo ]; then
   extra_cmd="$extra_cmd --redo"
 fi
 
+## remove exist softlink
+[ -d examples/$dataset_name ] && rm -rf examples/$dataset_name
+
 for subset in test trainval; do
   python $caffe_root_dir/scripts/create_annoset.py \
     --anno-type=$anno_type \

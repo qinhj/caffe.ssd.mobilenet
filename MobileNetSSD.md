@@ -1,19 +1,16 @@
 ﻿## Prepare Env ##
-```
-$ CAFFE_ROOT=$HOME/desktop/caffe
-$ ...
-
-* See ssd/SSD.md for more.
-```
+See [ssd/SSD.md](https://github.com/qinhj/caffe.ssd/blob/master/SSD.md) for more.
 
 ## Quick Test ##
 ```
+$ source env.rc
+
 ## download pretrained MobileNetSSD caffe model
 https://drive.google.com/open?id=0B3gersZ2cHIxVFI1Rjd5aDgwOG8 // mobilenet_iter_73000.caffemodel
 https://drive.google.com/open?id=0B3gersZ2cHIxRm5PMWRoTkdHdHc // MobileNetSSD_deploy.caffemodel
 
 ## smoke detect (with pretrained caffe model)
-$ python detect.py --pycaffe $HOME/desktop/caffe/python --model deploy.prototxt --weights mobilenet_ssd.caffemodel --images images
+$ python detect.py --pycaffe $CAFFE_ROOT/python --model deploy.prototxt --weights mobilenet_ssd.caffemodel --images images
 
 ## smoke merge (bn -> conv)
 $ python tools/merge_bn.py --pycaffe $CAFFE_ROOT/python --model deploy.prototxt --weights mobilenet_ssd.caffemodel --model_out out.prototxt --weights_out out.caffemodel
@@ -21,11 +18,17 @@ $ python tools/merge_bn.py --pycaffe $CAFFE_ROOT/python --model deploy.prototxt 
 
 ## Quick Data ##
 ```
-## create label list and dataset(or one can use ssd official scripts)
+$ source env.rc
+
+## create your dataset or extract some classes from voc dataset by voc_extract.py
+## see https://github.com/qinhj/caffe.ssd/blob/master/scripts/voc_extract.py
+$ python voc_extract.py --dataset $HOME/data --classes cat,dog,person
+
+## create label list and lmdb(one can also use ssd official shell scripts)
 $ vi tools/create_list.sh
 $ vi tools/create_data.sh
-$ tools/create_list.sh // generate train/val/test.txt
-$ export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH && bash tools/create_data.sh
+$ bash tools/create_list.sh // generate train/val/test.txt
+$ bash tools/create_data.sh
 
 ## outputs:
 .
@@ -54,7 +57,7 @@ $ mv examples/Main/Main_test_lmdb test_lmdb
 ## train own mobilenet-ssd
 $ CLASSNUM=21
 $ tools/gen_model.sh $CLASSNUM
-$ train.sh
+$ bash train.sh
 ```
 
 ## Model Info (Caffe) ##

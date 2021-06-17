@@ -18,13 +18,13 @@ DIR_ROOT = os.path.dirname(os.path.abspath(__file__))
 DIR_PYCAFFE = os.path.join(DIR_ROOT, "../../python")
 
 ## default voc 21 class labels
-CLASSES = (
+CLASSES = [
     'background',
     'aeroplane', 'bicycle', 'bird', 'boat', 'bottle',       # 01-05
     'bus', 'car', 'cat', 'chair', 'cow',                    # 06-10
     'diningtable', 'dog', 'horse', 'motorbike', 'person',   # 11-15
     'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor'    # 16-20
-)
+]
 
 
 def preprocess(src, shape=None):
@@ -44,7 +44,7 @@ def postprocess(img, out):
     return (box.astype(np.int32), conf, cls)
 
 
-def detect(imgfile):
+def detect(imgfile, threshold=0.5):
     origimg = cv2.imread(imgfile)
     img = preprocess(origimg)
     
@@ -57,13 +57,15 @@ def detect(imgfile):
 
     print("img: %s" % (imgfile))
     for i in range(len(box)):
-       p1 = (box[i][0], box[i][1])
-       p2 = (box[i][2], box[i][3])
-       cv2.rectangle(origimg, p1, p2, (0,255,0))
-       p3 = (max(p1[0], 15), max(p1[1], 15))
-       title = "%s:%.2f" % (CLASSES[int(cls[i])], conf[i])
-       cv2.putText(origimg, title, p3, cv2.FONT_ITALIC, 0.6, (0, 255, 0), 1)
-       print("obj[%02d] %s: %.2f" % (i, CLASSES[int(cls[i])], conf[i]))
+        if conf[i] < threshold: continue
+        p1 = (box[i][0], box[i][1])
+        p2 = (box[i][2], box[i][3])
+        cv2.rectangle(origimg, p1, p2, (0,255,0))
+        p3 = (max(p1[0], 15), max(p1[1], 15))
+        title = "%s:%.2f" % (CLASSES[int(cls[i])], conf[i])
+        cv2.putText(origimg, title, p3, cv2.FONT_ITALIC, 0.6, (0, 255, 0), 1)
+        print("obj[%02d] score: %2.3f%%, box: (%7.3f, %7.3f) (%7.3f, %7.3f), label: %s" % \
+            (i, conf[i] * 100, box[i][0], box[i][1], box[i][2], box[i][3], CLASSES[int(cls[i])]))
     cv2.imshow("SSD", origimg)
     print("----------------------------")
 
@@ -78,7 +80,13 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, default='deploy.prototxt', help='network description file')
     parser.add_argument('--weights', type=str, default='mobilenet_iter_73000.caffemodel', help='model weights path')
     parser.add_argument('--images', type=str, default='images', help='test images folder path')
+    parser.add_argument('--classes', type=str, default='', help='class labels')
+    parser.add_argument('--threshold', type=float, default=0.5, help='threshold')
     args = parser.parse_args()
+
+    if args.classes:
+        CLASSES = [ 'background' ]
+        CLASSES.extend(args.classes.split(","))
 
     ## check input args
     if not os.path.exists(args.model):
@@ -94,5 +102,5 @@ if __name__ == '__main__':
 
     for img in os.listdir(args.images):
         if img.endswith(".jpg"):
-            if not detect(os.path.join(args.images, img)):
+            if not detect(os.path.join(args.images, img), args.threshold):
                 sys.exit("receive ESC and quit")

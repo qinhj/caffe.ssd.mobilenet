@@ -1,7 +1,8 @@
 /*.caffemodel
 /*.prototxt
 /*.rc
-/*_lmdb
 
+/*_lmdb*
 /output
 /examples
+/snapshot*

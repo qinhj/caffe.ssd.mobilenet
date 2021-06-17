@@ -1,0 +1,394 @@
+I0617 12:54:20.732172 15851 solver.cpp:243] Iteration 7070, loss = 6.8106
+I0617 12:54:20.732237 15851 solver.cpp:259]     Train net output #0: mbox_loss = 6.40579 (* 1 = 6.40579 loss)
+I0617 12:54:20.732254 15851 sgd_solver.cpp:138] Iteration 7070, lr = 0.0005
+*** Error in `/home/qinhj/workshop/caffe//build/tools/caffe': double free or corruption (!prev): 0x00007fbffd9f64c0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x777f5)[0x7fc109be47f5]
+/lib/x86_64-linux-gnu/libc.so.6(+0x8038a)[0x7fc109bed38a]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x4c)[0x7fc109bf158c]
+/usr/local/lib/libopencv_core.so.3.2(_ZN2cv3Mat10deallocateEv+0xc9)[0x7fc0ff95b429]
+/opt/workshop/qinhj/caffe/.build_release/tools/../lib/libcaffe.so.1.0.0-rc3(_ZN2cv3MatD1Ev+0x19)[0x7fc10b4ac289]
+/opt/workshop/qinhj/caffe/.build_release/tools/../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe15DataTransformerIfE9CropImageERKNS_5DatumERKNS_14NormalizedBBoxEPS2_+0x245)[0x7fc10b6f0ec5]
+/opt/workshop/qinhj/caffe/.build_release/tools/../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe15DataTransformerIfE9CropImageERKNS_14AnnotatedDatumERKNS_14NormalizedBBoxEPS2_+0x51)[0x7fc10b6f2fd1]
+/opt/workshop/qinhj/caffe/.build_release/tools/../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe18AnnotatedDataLayerIfE10load_batchEPNS_5BatchIfEE+0x7a5)[0x7fc10b6445a5]
+/opt/workshop/qinhj/caffe/.build_release/tools/../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe24BasePrefetchingDataLayerIfE19InternalThreadEntryEv+0xbf)[0x7fc10b5c733f]
+/opt/workshop/qinhj/caffe/.build_release/tools/../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe14InternalThread5entryEiNS_5Caffe4BrewEiib+0xa5)[0x7fc10b6fb415]
+/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.58.0(+0x115d5)[0x7fc0fd4c15d5]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x76ba)[0x7fc0df6136ba]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x6d)[0x7fc109c744dd]
+======= Memory map: ========
+00400000-00418000 r-xp 00000000 00:29 12133836873                        /opt/workshop/qinhj/caffe/.build_release/tools/caffe.bin
+00617000-00618000 r--p 00017000 00:29 12133836873                        /opt/workshop/qinhj/caffe/.build_release/tools/caffe.bin
+00618000-00619000 rw-p 00018000 00:29 12133836873                        /opt/workshop/qinhj/caffe/.build_release/tools/caffe.bin
+008fc000-3e5ba000 rw-p 00000000 00:00 0                                  [heap]
+200000000-200200000 ---p 00000000 00:00 0
+200200000-200400000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+200400000-200600000 rw-s 00000000 00:06 401                              /dev/nvidia0
+200600000-203e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+203e00000-204000000 rw-s 00000000 00:06 401                              /dev/nvidia0
+204000000-204c00000 ---p 00000000 00:00 0
+204c00000-204e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+204e00000-205000000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+205000000-205200000 rw-s 205000000 00:06 406                             /dev/nvidia-uvm
+205200000-205400000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+205400000-205600000 ---p 00000000 00:00 0
+205600000-205800000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+205800000-205c00000 ---p 00000000 00:00 0
+205c00000-205e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+205e00000-206000000 ---p 00000000 00:00 0
+206000000-206200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+206200000-206400000 ---p 00000000 00:00 0
+206400000-206600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+206600000-206800000 ---p 00000000 00:00 0
+206800000-206a00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+206a00000-206c00000 ---p 00000000 00:00 0
+206c00000-206e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+206e00000-207000000 ---p 00000000 00:00 0
+207000000-207200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+207200000-207400000 ---p 00000000 00:00 0
+207400000-207600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+207600000-207800000 ---p 00000000 00:00 0
+207800000-207a00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+207a00000-207c00000 ---p 00000000 00:00 0
+207c00000-207e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+207e00000-208000000 ---p 00000000 00:00 0
+208000000-208200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+208200000-208400000 ---p 00000000 00:00 0
+208400000-208600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+208600000-208800000 ---p 00000000 00:00 0
+208800000-208a00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+208a00000-208c00000 ---p 00000000 00:00 0
+208c00000-208e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+208e00000-209000000 ---p 00000000 00:00 0
+209000000-209200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+209200000-209400000 ---p 00000000 00:00 0
+209400000-209600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+209600000-209800000 ---p 00000000 00:00 0
+209800000-209a00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+209a00000-209c00000 rw-s 209a00000 00:06 406                             /dev/nvidia-uvm
+209c00000-209e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+209e00000-20a000000 ---p 00000000 00:00 0
+20a000000-20a200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20a200000-20a400000 ---p 00000000 00:00 0
+20a400000-20a600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20a600000-20a800000 ---p 00000000 00:00 0
+20a800000-20aa00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20aa00000-20ac00000 ---p 00000000 00:00 0
+20ac00000-20ae00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20ae00000-20b000000 ---p 00000000 00:00 0
+20b000000-20b200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20b200000-20b400000 ---p 00000000 00:00 0
+20b400000-20b600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20b600000-20b800000 ---p 00000000 00:00 0
+20b800000-20ba00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20ba00000-20bc00000 ---p 00000000 00:00 0
+20bc00000-20be00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20be00000-20c000000 ---p 00000000 00:00 0
+20c000000-20c200000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20c200000-20c400000 ---p 00000000 00:00 0
+20c400000-20c600000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20c600000-20c800000 ---p 00000000 00:00 0
+20c800000-20ca00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+20ca00000-300200000 ---p 00000000 00:00 0
+400000000-400200000 ---p 00000000 00:00 0
+400200000-400400000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+400400000-400600000 rw-s 00000000 00:06 401                              /dev/nvidia0
+400600000-403e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+403e00000-404000000 rw-s 00000000 00:06 401                              /dev/nvidia0
+404000000-404c00000 ---p 00000000 00:00 0
+404c00000-404e00000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+404e00000-405000000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+405000000-405200000 rw-s 405000000 00:06 406                             /dev/nvidia-uvm
+405200000-405400000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+405400000-405600000 ---p 00000000 00:00 0
+405600000-405800000 rw-s 00000000 00:06 400                              /dev/nvidiactl
+405800000-500200000 ---p 00000000 00:00 0
+10000000000-10004200000 ---p 00000000 00:00 0
+7fbd04000000-7fbd04021000 rw-p 00000000 00:00 0
+7fbd04021000-7fbd08000000 ---p 00000000 00:00 0
+7fbd0c000000-7fbd0c510000 rw-p 00000000 00:00 0
+7fbd0c510000-7fbd10000000 ---p 00000000 00:00 0
+7fbd12000000-7fbd17800000 ---p 00000000 00:00 0
+7fbd17800000-7fbd17a00000 rw-s 00000000 00:05 99683155                   /dev/zero (deleted)
+7fbd17a00000-7fbd17c00000 rw-s 00000000 00:05 99683156                   /dev/zero (deleted)
+7fbd17c00000-7fbd17e00000 rw-s 00000000 00:05 99683157                   /dev/zero (deleted)
+7fbd17e00000-7fbd18000000 rw-s 00000000 00:05 99683158                   /dev/zero (deleted)
+7fbd18000000-7fbd1c200000 ---p 00000000 00:00 0
+7fbd1c200000-7fbd1c600000 rw-s 00000000 00:05 99683159                   /dev/zero (deleted)
+7fbd1c600000-7fbd1c800000 rw-s 00000000 00:05 99683160                   /dev/zero (deleted)
+7fbd1c800000-7fbd1cc80000 rw-s 00000000 00:05 99683161                   /dev/zero (deleted)
+7fbd1cc80000-7fbd1ce00000 ---p 00000000 00:00 0
+7fbd1ce00000-7fbd1d000000 rw-s 00000000 00:05 99683162                   /dev/zero (deleted)
+7fbd1d000000-7fbd1d200000 rw-s 00000000 00:05 99683163                   /dev/zero (deleted)
+7fbd1d200000-7fbde1c00000 ---p 00000000 00:00 0
+7fbde1c00000-7fbde1e00000 rw-s 00000000 00:05 99675171                   /dev/zero (deleted)
+7fbde1e00000-7fbde5c00000 ---p 00000000 00:00 0
+7fbde5c00000-7fbde5fb0000 rw-s 00000000 00:05 99675172                   /dev/zero (deleted)
+7fbde5fb0000-7fbdeda00000 ---p 00000000 00:00 0
+7fbdeda00000-7fbdeddb0000 rw-s 00000000 00:05 99675173                   /dev/zero (deleted)
+7fbdeddb0000-7fbed4800000 ---p 00000000 00:00 0
+7fbed4800000-7fbed4a00000 rw-s 00000000 00:05 99675170                   /dev/zero (deleted)
+7fbed4a00000-7fbedb200000 ---p 00000000 00:00 0
+7fbedb200000-7fbedb400000 rw-s 00000000 00:05 99675169                   /dev/zero (deleted)
+7fbedb400000-7fbee0800000 ---p 00000000 00:00 0
+7fbee0800000-7fbee0c80000 rw-s 00000000 00:05 99675168                   /dev/zero (deleted)
+7fbee0c80000-7fbee5a00000 ---p 00000000 00:00 0
+7fbee5a00000-7fbee5c00000 rw-s 00000000 00:05 99675167                   /dev/zero (deleted)
+7fbee5c00000-7fbee7200000 ---p 00000000 00:00 0
+7fbee7200000-7fbee7600000 rw-s 00000000 00:05 99675166                   /dev/zero (deleted)
+7fbee7600000-7fbeeba00000 ---p 00000000 00:00 0
+7fbeeba00000-7fbeebc00000 rw-s 00000000 00:05 99675165                   /dev/zero (deleted)
+7fbeebc00000-7fbef1000000 ---p 00000000 00:00 0
+7fbef1000000-7fbef1200000 rw-s 00000000 00:05 99675164                   /dev/zero (deleted)
+7fbef1200000-7fbef6800000 ---p 00000000 00:00 0
+7fbef6800000-7fbef6a00000 rw-s 00000000 00:05 99675163                   /dev/zero (deleted)
+7fbef6a00000-7fbeffc00000 ---p 00000000 00:00 0
+7fbeffc00000-7fbeffe00000 rw-s 00000000 00:05 99675162                   /dev/zero (deleted)
+7fbeffe00000-7fbf0e800000 ---p 00000000 00:00 0
+7fbf0e800000-7fbf0ea00000 rw-s 00000000 00:05 99675161                   /dev/zero (deleted)
+7fbf0ea00000-7fbf10000000 ---p 00000000 00:00 0
+7fbf10000000-7fbf10249000 rw-p 00000000 00:00 0
+7fbf10249000-7fbf14000000 ---p 00000000 00:00 0
+7fbf16000000-7fbf1a000000 ---p 00000000 00:00 0
+7fbf1a000000-7fbf1a83e000 rw-s 00000000 00:05 99675159                   /dev/zero (deleted)
+7fbf1a83e000-7fbf1aa00000 ---p 00000000 00:00 0
+7fbf1aa00000-7fbf1b23e000 rw-s 00000000 00:05 99675160                   /dev/zero (deleted)
+7fbf1b23e000-7fbf1c000000 ---p 00000000 00:00 0
+7fbf1c000000-7fbf3c000000 r--s 00000000 00:29 12452699508                /opt/AI/jupyter/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb/data.mdb
+7fbf3c000000-7fbf3c477000 rw-p 00000000 00:00 0
+7fbf3c477000-7fbf40000000 ---p 00000000 00:00 0
+7fbf42000000-7fbf43000000 ---p 00000000 00:00 0
+7fbf43000000-7fbf4383e000 rw-s 00000000 00:05 99675158                   /dev/zero (deleted)
+7fbf4383e000-7fbf65a00000 ---p 00000000 00:00 0
+7fbf65a00000-7fbf65c00000 rw-s 00000000 00:05 99675157                   /dev/zero (deleted)
+7fbf65c00000-7fbf68800000 ---p 00000000 00:00 0
+7fbf68800000-7fbf68a00000 rw-s 00000000 00:05 99675156                   /dev/zero (deleted)
+7fbf68a00000-7fbf6f200000 ---p 00000000 00:00 0
+7fbf6f200000-7fbf6f680000 rw-s 00000000 00:05 99675155                   /dev/zero (deleted)
+7fbf6f680000-7fbf70800000 ---p 00000000 00:00 0
+7fbf70800000-7fbf70a00000 rw-s 00000000 00:05 99675154                   /dev/zero (deleted)
+7fbf70a00000-7fbf75a00000 ---p 00000000 00:00 0
+7fbf75a00000-7fbf75e00000 rw-s 00000000 00:05 99675153                   /dev/zero (deleted)
+7fbf75e00000-7fbf76800000 ---p 00000000 00:00 0
+7fbf76800000-7fbf76a00000 rw-s 00000000 00:05 99675152                   /dev/zero (deleted)
+7fbf76a00000-7fbf7fa00000 ---p 00000000 00:00 0
+7fbf7fa00000-7fbf7fc00000 rw-s 00000000 00:05 99675151                   /dev/zero (deleted)
+7fbf7fc00000-7fbf85000000 ---p 00000000 00:00 0
+7fbf85000000-7fbf85200000 rw-s 00000000 00:05 99675150                   /dev/zero (deleted)
+7fbf85200000-7fbf8a800000 ---p 00000000 00:00 0
+7fbf8a800000-7fbf8aa00000 rw-s 00000000 00:05 99675149                   /dev/zero (deleted)
+7fbf8aa00000-7fbfac000000 ---p 00000000 00:00 0
+7fbfac000000-7fbfac021000 rw-p 00000000 00:00 0
+7fbfac021000-7fbfb0000000 ---p 00000000 00:00 0
+7fbfb2000000-7fbfb4000000 ---p 00000000 00:00 0
+7fbfb4000000-7fbfb4021000 rw-p 00000000 00:00 0
+7fbfb4021000-7fbfb8000000 ---p 00000000 00:00 0
+7fbfb8000000-7fbfb8021000 rw-p 00000000 00:00 0
+7fbfb8021000-7fbfbc000000 ---p 00000000 00:00 0
+7fbfbc000000-7fbfbc021000 rw-p 00000000 00:00 0
+7fbfbc021000-7fbfc0000000 ---p 00000000 00:00 0
+7fbfc033a000-7fbfc033b000 ---p 00000000 00:00 0
+7fbfc033b000-7fbfc0b3b000 rwxp 00000000 00:00 0
+7fbfc0b3b000-7fbfc199c000 rw-p 00000000 00:00 0
+7fbfc1ffc000-7fbfc1ffd000 ---p 00000000 00:00 0
+7fbfc1ffd000-7fbfc27fd000 rwxp 00000000 00:00 0
+7fbfc27fd000-7fbfc27fe000 ---p 00000000 00:00 0
+7fbfc27fe000-7fbfc2ffe000 rwxp 00000000 00:00 0
+7fbfc2ffe000-7fbfc2fff000 ---p 00000000 00:00 0
+7fbfc2fff000-7fbfc37ff000 rwxp 00000000 00:00 0
+7fbfc37ff000-7fbfc3800000 ---p 00000000 00:00 0
+7fbfc3800000-7fbfc4000000 rwxp 00000000 00:00 0
+7fbfc4000000-7fbfc4021000 rw-p 00000000 00:00 0
+7fbfc4021000-7fbfc8000000 ---p 00000000 00:00 0
+7fbfc8000000-7fbfc8021000 rw-p 00000000 00:00 0
+7fbfc8021000-7fbfcc000000 ---p 00000000 00:00 0
+7fbfcc000000-7fbfcc021000 rw-p 00000000 00:00 0
+7fbfcc021000-7fbfd0000000 ---p 00000000 00:00 0
+7fbfd0000000-7fbfd0021000 rw-p 00000000 00:00 0
+7fbfd0021000-7fbfd4000000 ---p 00000000 00:00 0
+7fbfd4000000-7fbfda600000 ---p 00000000 00:00 0
+7fbfda600000-7fbfda800000 rw-s 00000000 00:05 99672563                   /dev/zero (deleted)
+7fbfda800000-7fbfdaa00000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fbfdaa00000-7fbfdac00000 rw-s 00000000 00:05 99672564                   /dev/zero (deleted)
+7fbfdac00000-7fbfdb000000 ---p 00000000 00:00 0
+7fbfdb000000-7fbfdb200000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fbfdb200000-7fbfdb800000 ---p 00000000 00:00 0
+7fbfdb800000-7fbfdba00000 rw-s 00000000 00:05 99672566                   /dev/zero (deleted)
+7fbfdba00000-7fbfdbae7000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fbfdbae7000-7fbfdc000000 ---p 00000000 00:00 0
+7fbfdc000000-7fbfdc021000 rw-p 00000000 00:00 0
+7fbfdc021000-7fbfe0000000 ---p 00000000 00:00 0
+7fbfe0000000-7fbffaa00000 ---p 00000000 00:00 0
+7fbffaa00000-7fbffac00000 rw-s 00000000 00:05 99673382                   /dev/zero (deleted)
+7fbffac00000-7fbffc000000 ---p 00000000 00:00 0
+7fbffc000000-7fbffe90d000 rw-p 00000000 00:00 0
+7fbffe90d000-7fc000000000 ---p 00000000 00:00 0
+7fc0007fd000-7fc0007fe000 ---p 00000000 00:00 0
+7fc0007fe000-7fc000ffe000 rwxp 00000000 00:00 0
+7fc000ffe000-7fc000fff000 ---p 00000000 00:00 0
+7fc000fff000-7fc0017ff000 rwxp 00000000 00:00 0
+7fc0017ff000-7fc001800000 ---p 00000000 00:00 0
+7fc001800000-7fc002000000 rwxp 00000000 00:00 0
+7fc002000000-7fc00a000000 ---p 00000000 00:00 0
+7fc00a000000-7fc00b8b9000 rw-s 00000000 00:05 99673381                   /dev/zero (deleted)
+7fc00b8b9000-7fc00c000000 ---p 00000000 00:00 0
+7fc00c000000-7fc00d8b9000 rw-s 00000000 00:05 99673380                   /dev/zero (deleted)
+7fc00d8b9000-7fc00e000000 ---p 00000000 00:00 0
+7fc00e000000-7fc00f8b9000 rw-s 00000000 00:05 99673379                   /dev/zero (deleted)
+7fc00f8b9000-7fc010000000 ---p 00000000 00:00 0
+7fc010000000-7fc090000000 r--s 00000000 00:29 12349267698                /opt/AI/jupyter/VOCdevkit/VOC0712/lmdb/VOC0712_trainval_lmdb/data.mdb
+7fc090000000-7fc093fd5000 rw-p 00000000 00:00 0
+7fc093fd5000-7fc094000000 ---p 00000000 00:00 0
+7fc0947fd000-7fc0947fe000 ---p 00000000 00:00 0
+7fc0947fe000-7fc094ffe000 rwxp 00000000 00:00 0
+7fc094ffe000-7fc094fff000 ---p 00000000 00:00 0
+7fc094fff000-7fc0957ff000 rwxp 00000000 00:00 0
+7fc0957ff000-7fc095800000 ---p 00000000 00:00 0
+7fc095800000-7fc096000000 rwxp 00000000 00:00 0
+7fc096000000-7fc097a00000 ---p 00000000 00:00 0
+7fc097a00000-7fc097c00000 rw-s 00000000 00:05 99673378                   /dev/zero (deleted)
+7fc097c00000-7fc09a000000 ---p 00000000 00:00 0
+7fc09a22f000-7fc09a230000 ---p 00000000 00:00 0
+7fc09a230000-7fc09aa30000 rwxp 00000000 00:00 0
+7fc09aa30000-7fc09aa31000 ---p 00000000 00:00 0
+7fc09aa31000-7fc09b231000 rwxp 00000000 00:00 0
+7fc09b231000-7fc09b232000 ---p 00000000 00:00 0
+7fc09b232000-7fc09ba32000 rwxp 00000000 00:00 0
+7fc09ba32000-7fc09ba33000 ---p 00000000 00:00 0
+7fc09ba33000-7fc09c233000 rwxp 00000000 00:00 0
+7fc09c233000-7fc09dccf000 r-xp 00000000 fd:01 806877                     /usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.440.33.01
+7fc09dccf000-7fc09decf000 ---p 01a9c000 fd:01 806877                     /usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.440.33.01
+7fc09decf000-7fc09dfeb000 rw-p 01a9c000 fd:01 806877                     /usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.440.33.01
+7fc09dfeb000-7fc09e000000 rw-p 00000000 00:00 0
+7fc09e000000-7fc0b0000000 ---p 00000000 00:00 0
+7fc0b05fd000-7fc0b07fd000 rw-s 00000000 00:05 99672565                   /dev/zero (deleted)
+7fc0b07fd000-7fc0b07fe000 ---p 00000000 00:00 0
+7fc0b07fe000-7fc0b0ffe000 rwxp 00000000 00:00 0
+7fc0b0ffe000-7fc0b0fff000 ---p 00000000 00:00 0
+7fc0b0fff000-7fc0b17ff000 rwxp 00000000 00:00 0
+7fc0b17ff000-7fc0b1800000 ---p 00000000 00:00 0
+7fc0b1800000-7fc0b2000000 rwxp 00000000 00:00 0
+7fc0b2000000-7fc0b2400000 ---p 00000000 00:00 0
+7fc0b2400000-7fc0b2600000 rw-s 00000000 00:05 99673373                   /dev/zero (deleted)
+7fc0b2600000-7fc0b2800000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b2800000-7fc0b2a00000 rw-s 00000000 00:05 99673374                   /dev/zero (deleted)
+7fc0b2a00000-7fc0b2e00000 ---p 00000000 00:00 0
+7fc0b2e00000-7fc0b3000000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b3000000-7fc0b3200000 ---p 00000000 00:00 0
+7fc0b3200000-7fc0b3400000 rw-s 00000000 00:05 99673376                   /dev/zero (deleted)
+7fc0b3400000-7fc0b34e7000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b34e7000-7fc0b4000000 ---p 00000000 00:00 0
+7fc0b4000000-7fc0b4021000 rw-p 00000000 00:00 0
+7fc0b4021000-7fc0b8000000 ---p 00000000 00:00 0
+7fc0b8033000-7fc0b8034000 rw-p 00000000 00:00 0
+7fc0b8034000-7fc0b8036000 rw-s 00000000 00:29 11153296993                /opt/AI/jupyter/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb/lock.mdb
+7fc0b8036000-7fc0b8037000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8037000-7fc0b8038000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8038000-7fc0b8039000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8039000-7fc0b803a000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b803a000-7fc0b803b000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b803b000-7fc0b803c000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b803c000-7fc0b803d000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b803d000-7fc0b803e000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b803e000-7fc0b803f000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b803f000-7fc0b8040000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8040000-7fc0b8041000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8041000-7fc0b8042000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8042000-7fc0b8043000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8043000-7fc0b8044000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8044000-7fc0b8045000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8045000-7fc0b8046000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8046000-7fc0b8047000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8047000-7fc0b8048000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8048000-7fc0b8049000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b8049000-7fc0b804a000 rw-s 00000000 00:06 400                        /dev/nvidiactl
+7fc0b804a000-7fc0b805a000 -w-s 00000000 00:06 401                        /dev/nvidia0
+7fc0b805a000-7fc0b8060000 r-xp 00000000 fd:01 1837601                    /usr/local/cuda-10.2/targets/x86_64-linux/lib/libOpenCL.so.1.1
+7fc0b8060000-7fc0b825f000 ---p 00006000 fd:01 1837601                    /usr/local/cuda-10.2/targets/x86_64-linux/lib/libOpenCL.so.1.1
+7fc0b825f000-7fc0b8261000 rw-p 00005000 fd:01 1837601                    /usr/local/cuda-10.2/targets/x86_64-linux/lib/libOpenCL.so.1.1
+7fc0b8261000-7fc0b8359000 rw-p 00000000 00:00 0
+7fc0b8359000-7fc0b8559000 rw-s 00000000 00:05 99673375                   /dev/zero (deleted)
+7fc0b8559000-7fc0b85da000 rw-p 00000000 00:00 0
+7fc0b85da000-7fc0b85db000 ---p 00000000 00:00 0
+7fc0b85db000-7fc0b8ddb000 rwxp 00000000 00:00 0
+7fc0b8ddb000-7fc0b8ddc000 ---p 00000000 00:00 0
+7fc0b8ddc000-7fc0b95dc000 rwxp 00000000 00:00 0
+7fc0b95dc000-7fc0bf5dc000 ---p 00000000 00:00 0
+7fc0bf5dc000-7fc0c0495000 r-xp 00000000 fd:01 806876                     /usr/lib/x86_64-linux-gnu/libcuda.so.440.33.01
+7fc0c0495000-7fc0c0694000 ---p 00eb9000 fd:01 806876                     /usr/lib/x86_64-linux-gnu/libcuda.so.440.33.01
+7fc0c0694000-7fc0c07af000 rw-p 00eb8000 fd:01 806876                     /usr/lib/x86_64-linux-gnu/libcuda.so.440.33.01
+7fc0c07af000-7fc0c07c4000 rw-p 00000000 00:00 0
+7fc0c07c4000-7fc0c07c5000 ---p 00000000 00:00 0
+7fc0c07c5000-7fc0c0fc5000 rwxp 00000000 00:00 0
+7fc0c0fc5000-7fc0c6fc5000 rw-p 00000000 00:00 0
+7fc0c6fc5000-7fc0c6fc6000 ---p 00000000 00:00 0
+7fc0c6fc6000-7fc0c77c6000 rwxp 00000000 00:00 0
+7fc0c77c6000-7fc0c77c7000 ---p 00000000 00:00 0
+7fc0c77c7000-7fc0c7fc7000 rwxp 00000000 00:00 0
+7fc0c7fc7000-7fc0c7fc8000 ---p 00000000 00:00 0
+7fc0c7fc8000-7fc0c87c8000 rwxp 00000000 00:00 0
+7fc0c87c8000-7fc0c87cb000 r-xp 00000000 fd:01 928591                     /lib/x86_64-linux-gnu/libkeyutils.so.1.5
+7fc0c87cb000-7fc0c89ca000 ---p 00003000 fd:01 928591                     /lib/x86_64-linux-gnu/libkeyutils.so.1.5
+7fc0c89ca000-7fc0c89cb000 r--p 00002000 fd:01 928591                     /lib/x86_64-linux-gnu/libkeyutils.so.1.5
+7fc0c89cb000-7fc0c89cc000 rw-p 00003000 fd:01 928591                     /lib/x86_64-linux-gnu/libkeyutils.so.1.5
+7fc0c89cc000-7fc0c89d6000 r-xp 00000000 fd:01 787229                     /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+7fc0c89d6000-7fc0c8bd5000 ---p 0000a000 fd:01 787229                     /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+7fc0c8bd5000-7fc0c8bd6000 r--p 00009000 fd:01 787229                     /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+7fc0c8bd6000-7fc0c8bd7000 rw-p 0000a000 fd:01 787229                     /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+7fc0c8bd7000-7fc0c8bda000 r-xp 00000000 fd:01 922389                     /lib/x86_64-linux-gnu/libcom_err.so.2.1
+7fc0c8bda000-7fc0c8dd9000 ---p 00003000 fd:01 922389                     /lib/x86_64-linux-gnu/libcom_err.so.2.1
+7fc0c8dd9000-7fc0c8dda000 r--p 00002000 fd:01 922389                     /lib/x86_64-linux-gnu/libcom_err.so.2.1
+7fc0c8dda000-7fc0c8ddb000 rw-p 00003000 fd:01 922389                     /lib/x86_64-linux-gnu/libcom_err.so.2.1
+7fc0c8ddb000-7fc0c8e07000 r-xp 00000000 fd:01 787232                     /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+7fc0c8e07000-7fc0c9006000 ---p 0002c000 fd:01 787232                     /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+7fc0c9006000-7fc0c9008000 r--p 0002b000 fd:01 787232                     /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+7fc0c9008000-7fc0c9009000 rw-p 0002d000 fd:01 787232                     /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+7fc0c9009000-7fc0c900a000 rw-p 00000000 00:00 0
+7fc0c900a000-7fc0c90cd000 r-xp 00000000 fd:01 787226                     /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+7fc0c90cd000-7fc0c92cd000 ---p 000c3000 fd:01 787226                     /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+7fc0c92cd000-7fc0c92da000 r--p 000c3000 fd:01 787226                     /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+7fc0c92da000-7fc0c92dc000 rw-p 000d0000 fd:01 787226                     /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+7fc0c92dc000-7fc0c92ee000 r-xp 00000000 fd:01 918029                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7fc0c92ee000-7fc0c94ee000 ---p 00012000 fd:01 918029                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7fc0c94ee000-7fc0c94ef000 r--p 00012000 fd:01 918029                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7fc0c94ef000-7fc0c94f0000 rw-p 00013000 fd:01 918029                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7fc0c94f0000-7fc0c9526000 r-xp 00000000 fd:01 791111                     /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0
+7fc0c9526000-7fc0c9725000 ---p 00036000 fd:01 791111                     /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0
+7fc0c9725000-7fc0c9726000 r--p 00035000 fd:01 791111                     /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0
+7fc0c9726000-7fc0c9727000 rw-p 00036000 fd:01 791111                     /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0
+7fc0c9727000-7fc0c972d000 r-xp 00000000 fd:01 798456                     /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7fc0c972d000-7fc0c992d000 ---p 00006000 fd:01 798456                     /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7fc0c992d000-7fc0c992e000 r--p 00006000 fd:01 798456                     /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7fc0c992e000-7fc0c992f000 rw-p 00007000 fd:01 798456                     /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7fc0c992f000-7fc0c9953000 r-xp 00000000 fd:01 798481                     /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7fc0c9953000-7fc0c9b52000 ---p 00024000 fd:01 798481                     /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7fc0c9b52000-7fc0c9b54000 r--p 00023000 fd:01 798481                     /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7fc0c9b54000-7fc0c9b55000 rw-p 00025000 fd:01 798481                     /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7fc0c9b55000-7fc0c9b66000 r-xp 00000000 fd:01 787019                     /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.1
+7fc0c9b66000-7fc0c9d66000 ---p 00011000 fd:01 787019                     /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.1
+7fc0c9d66000-7fc0c9d67000 r--p 00011000 fd:01 787019                     /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.1
+7fc0c9d67000-7fc0c9d68000 rw-p 00012000 fd:01 787019                     /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.1
+7fc0c9d68000-7fc0c9d99000 r-xp 00000000 fd:01 787006                     /usr/lib/x86_64-linux-gnu/libidn.so.11.6.15
+7fc0c9d99000-7fc0c9f99000 ---p 00031000 fd:01 787006                     /usr/lib/x86_64-linux-gnu/libidn.so.11.6.15
+7fc0c9f99000-7fc0c9f9a000 r--p 00031000 fd:01 787006                     /usr/lib/x86_64-linux-gnu/libidn.so.11.6.15
+7fc0c9f9a000-7fc0c9f9b000 rw-p 00032000 fd:01 787006                     /usr/lib/x86_64-linux-gnu/libidn.so.11.6.15*** Aborted at 1623905673 (unix time) try "date -d @1623905673" if you are using GNU date ***
+PC: @     0x7fc109ba2438 gsignal
+*** SIGABRT (@0x3e900003deb) received by PID 15851 (TID 0x7fc0b17fe700) from PID 15851; stack trace: ***
+    @     0x7fc109ba24c0 (unknown)
+    @     0x7fc109ba2438 gsignal
+    @     0x7fc109ba403a abort
+    @     0x7fc109be47fa (unknown)
+    @     0x7fc109bed38a (unknown)
+    @     0x7fc109bf158c cfree
+    @     0x7fc0ff95b429 cv::Mat::deallocate()
+    @     0x7fc10b4ac289 cv::Mat::~Mat()
+    @     0x7fc10b6f0ec5 caffe::DataTransformer<>::CropImage()
+    @     0x7fc10b6f2fd1 caffe::DataTransformer<>::CropImage()
+    @     0x7fc10b6445a5 caffe::AnnotatedDataLayer<>::load_batch()
+    @     0x7fc10b5c733f caffe::BasePrefetchingDataLayer<>::InternalThreadEntry()
+    @     0x7fc10b6fb415 caffe::InternalThread::entry()
+    @     0x7fc0fd4c15d5 (unknown)
+    @     0x7fc0df6136ba start_thread
+    @     0x7fc109c744dd clone
+    @                0x0 (unknown)
+train.sh: line 10: 15851 Aborted                 (core dumped) $CAFFE_ROOT/build/tools/caffe train -solver=$SOLVER -weights=$WEIGHT -gpu 0
